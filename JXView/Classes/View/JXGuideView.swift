@@ -150,7 +150,7 @@ class JXGuideView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         
         let urlStr = images[indexPath.item]
         if
-            let url = URL.init(string: urlStr),
+            let _ = URL.init(string: urlStr),
             urlStr.hasPrefix("http"){
             cell.imageView.jx_setImage(with: urlStr, placeholderImage: nil)
         }else{

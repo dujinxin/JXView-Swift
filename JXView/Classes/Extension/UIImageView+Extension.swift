@@ -34,7 +34,7 @@ extension UIImageView {
     
     func jx_setImage(with urlStr:String, placeholderImage: UIImage?,radius:CGFloat = 0){
         
-        guard let url = URL(string: urlStr) else {
+        guard let _ = URL(string: urlStr) else {
             self.image = placeholderImage
             return
         }
