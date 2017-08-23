@@ -1,0 +1,6 @@
+framework module JXView {
+  umbrella header "JXView-umbrella.h"
+
+  export *
+  module * { export * }
+}
