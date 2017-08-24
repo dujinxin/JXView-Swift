@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'JXView'
-  s.version          = ‘0.0.4’
+  s.version          = '0.0.4'
   s.summary          = 'custom view'
 
   s.homepage         = 'https://github.com/dujinxin/JXView-Swift'
