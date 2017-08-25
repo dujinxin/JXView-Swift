@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import JXView
 
 class MainTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
     override func didReceiveMemoryWarning() {

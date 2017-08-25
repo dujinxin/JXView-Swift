@@ -1,9 +1,8 @@
 {
   "name": "JXView",
-  "version": "0.1.0",
-  "summary": "A short description of JXView.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/dujinxin/JXView",
+  "version": "0.0.5",
+  "summary": "custom view",
+  "homepage": "https://github.com/dujinxin/JXView-Swift",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,8 +11,8 @@
     "dujinxin": "dujinxin8866@163.com"
   },
   "source": {
-    "git": "https://github.com/dujinxin/JXView.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/dujinxin/JXView-Swift.git",
+    "tag": "0.0.5"
   },
   "platforms": {
     "ios": "8.0"
