@@ -14,6 +14,7 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = JXDebugColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,16 +23,18 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        switch indexPath.section {
-//        case 0:
-//            switch indexPath.row {
-//            case 0:
-//                
-//            default:
-//                break
-//            }
-//        default:
-//            break
-//        }
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                let notice = JXNoticeView(text: "温馨提示！")
+                notice.show()
+                
+            default:
+                break
+            }
+        default:
+            break
+        }
     }
 }

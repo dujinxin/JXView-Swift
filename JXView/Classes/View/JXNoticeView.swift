@@ -8,28 +8,23 @@
 
 import UIKit
 
-enum JXNoticeViewStyle : Int {
-    case notice
-    case warning
-    case info
-    case error
+public enum JXNoticeViewStyle : Int {
+    case notice,warning,info,error
 }
-enum JXNoticeViewShowPosition {
-    case top
-    case middle
-    case bottom
+public enum JXNoticeViewShowPosition {
+    case top,middle,bottom
 }
 
-enum JXNoticeViewDuration : Int {
+public enum JXNoticeViewDuration : Int {
     case long    =  3
     case short   =  1
     case normal  =  2
 }
 
-class JXNoticeView: UIView {
+public class JXNoticeView: UIView {
 
-    var message : String?
-    var font : UIFont = UIFont.boldSystemFont(ofSize: 16)
+    public var message : String?
+    public var font : UIFont = UIFont.boldSystemFont(ofSize: 16)
     
     var position : JXNoticeViewShowPosition = .middle
     var duration : JXNoticeViewDuration = .normal
@@ -45,7 +40,7 @@ class JXNoticeView: UIView {
         return window
     }()
     
-    init(text:String) {
+    public init(text:String) {
         //
         self.message = text
         
@@ -68,13 +63,13 @@ class JXNoticeView: UIView {
         self.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(dismiss(animate:))))
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func show() {
+    public func show() {
         self.show(inView: self.bgWindow)
     }
-    func show(inView view:UIView? ,animate:Bool = true) {
+    public func show(inView view:UIView? ,animate:Bool = true) {
     
         guard let msg = message,msg.isEmpty == false,
               let msgLabel = textLabel else {
@@ -83,7 +78,7 @@ class JXNoticeView: UIView {
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = 7
         let attributes = [NSFontAttributeName:font,NSParagraphStyleAttributeName:paragraphStyle] as [String : Any]
-        let rect = msg.boundingRect(with: CGSize.init(width: UIScreen.main.bounds.width - 60, height: CGFloat.greatestFiniteMagnitude), options: [.usesDeviceMetrics,.usesFontLeading,.usesLineFragmentOrigin], attributes: attributes, context: nil)
+        let rect = msg.boundingRect(with: CGSize.init(width: UIScreen.main.bounds.width - 60, height: CGFloat.greatestFiniteMagnitude), options: [.usesFontLeading,.usesLineFragmentOrigin], attributes: attributes, context: nil)
         
         msgLabel.frame = CGRect(x: 0, y: 0, width: rect.width + 10, height: rect.height + 10)
         self.frame = CGRect(x: 0, y: 0, width: rect.width + 30, height: rect.height + 30)
@@ -127,7 +122,7 @@ class JXNoticeView: UIView {
         self.perform(#selector(dismiss(animate:)), with: nil, afterDelay: TimeInterval(duration.rawValue))
     }
     
-    func dismiss(animate:Bool = true) {
+    public func dismiss(animate:Bool = true) {
         if animate {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: [], animations: { 
                 self.alpha = 0.0
@@ -144,8 +139,5 @@ class JXNoticeView: UIView {
         self.removeFromSuperview()
         bgWindow.isHidden = true
     }
-    deinit {
-        
-    }
-    
+
 }
