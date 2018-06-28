@@ -1,0 +1,10 @@
+framework module JXView {
+  umbrella header "JXView-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module JXView.__Swift {
+    exclude header "JXView-Swift.h"
+}

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension String {
+public extension String {
     
     
     static func validateTelephone(tel:String) -> Bool {
@@ -48,23 +48,23 @@ extension String {
     }
 }
 
-extension String {
+public extension String {
     
-    func calculate(width: CGFloat,fontSize:CGFloat,lineSpace:CGFloat = -1) -> CGSize {
+    public func calculate(width: CGFloat,fontSize:CGFloat,lineSpace:CGFloat = -1) -> CGSize {
         
         if self.isEmpty {
             return CGSize()
         }
         
         let ocText = self as NSString
-        var attributes : Dictionary<String, Any>
+        var attributes : Dictionary<NSAttributedStringKey, Any>
         let paragraph = NSMutableParagraphStyle.init()
         paragraph.lineSpacing = lineSpace
-        
+
         if lineSpace < 0 {
-            attributes = [NSFontAttributeName:UIFont.systemFont(ofSize: fontSize)]
+            attributes = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: fontSize)]
         }else{
-            attributes = [NSFontAttributeName:UIFont.systemFont(ofSize: fontSize),NSParagraphStyleAttributeName:paragraph]
+            attributes = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: fontSize),NSAttributedStringKey.paragraphStyle:paragraph]
         }
         //usesLineFragmentOrigin 绘制文本时使用 line fragement origin 而不是 baseline origin
         //usesFontLeading 根据字体计算高度

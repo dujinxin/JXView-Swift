@@ -12,7 +12,7 @@ private let reuseIdentifier = "Cell"
 private let reuseIndentifierHeader = "reuseIndentifierHeader"
 private let reuseIndentifierFooter = "reuseIndentifierFooter"
 
-class JXHorizontalView: UIView {
+public class JXHorizontalView: UIView {
 
     let parentViewController : UIViewController
     let rect : CGRect
@@ -20,9 +20,7 @@ class JXHorizontalView: UIView {
     
     var delegate : JXHorizontalViewDelegate?
     
-    
-    
-    init(frame: CGRect, containers:Array<UIViewController>,parentViewController:UIViewController) {
+    public init(frame: CGRect, containers:Array<UIViewController>,parentViewController:UIViewController) {
         
         self.rect = frame
         self.parentViewController = parentViewController
@@ -41,19 +39,19 @@ class JXHorizontalView: UIView {
         self.addSubview(self.containerView)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     
-    func reloadData() {
+    public func reloadData() {
         let indexPath = IndexPath.init(item: 0, section: 0)
         self.containerView.reloadItems(at: [indexPath])
     }
     
     
     
-    lazy var containerView: UICollectionView = {
+    public lazy var containerView: UICollectionView = {
         
         let flowlayout = UICollectionViewFlowLayout.init()
         flowlayout.itemSize = self.rect.size
@@ -77,31 +75,19 @@ class JXHorizontalView: UIView {
     }()
 }
 
-protocol JXHorizontalViewDelegate {
-    
-    /// scroll to indexPath
-    ///
-    /// - Parameters:
-    ///   - _:JXHorizontalView
-    ///   - indexPath: indexPath
-    /// - Returns: Void
+public protocol JXHorizontalViewDelegate {
     func horizontalView(_ :JXHorizontalView,to indexPath:IndexPath) -> Void
-    /// scrollView delegate
-    ///
-    /// - Parameter scrollView: containerView
-    /// - Returns: Void
     func horizontalViewDidScroll(scrollView:UIScrollView) -> Void
-    
 }
 
 extension JXHorizontalView:UICollectionViewDelegate,UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if containers.count > 0 {
             return containers.count
         }
         return 0
     }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = containerView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         if containers.count > indexPath.item {
             let v = containers[indexPath.item]
@@ -124,12 +110,12 @@ extension JXHorizontalView:UICollectionViewDelegate,UICollectionViewDataSource{
 }
 
 extension JXHorizontalView {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if self.delegate != nil {
             self.delegate?.horizontalViewDidScroll(scrollView: self.containerView)
         }
     }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.x
         let page = offset / self.frame.size.width
         let indexPath = IndexPath.init(item: Int(page), section: 0)
