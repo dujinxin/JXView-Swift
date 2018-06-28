@@ -13,7 +13,7 @@ class MainTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = JXDebugColor
     }
 
@@ -29,20 +29,7 @@ class MainTableViewController: UITableViewController {
             case 0:
                 let notice = JXNoticeView(text: "温馨提示！")
                 notice.show()
-            case 1:
-                self.navigationController?.pushViewController(FeedbackViewController(), animated: true)
-            case 2:
-                let vc = ViewController()
-                vc.type = .ad
-                self.navigationController?.present(vc, animated: true, completion: nil)
-            case 3:
-                let vc = ViewController()
-                vc.type = .guide
-                self.navigationController?.present(vc, animated: true, completion: nil)
-            case 4:
-                self.navigationController?.pushViewController(OrderManagerViewController(), animated: true)
-            case 5:
-                self.navigationController?.pushViewController(FeedbackViewController(), animated: true)
+                
             default:
                 break
             }

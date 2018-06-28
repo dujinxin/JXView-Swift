@@ -77,7 +77,7 @@ public class JXNoticeView: UIView {
         }
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = 7
-        let attributes = [NSAttributedStringKey.font.rawValue:font,NSAttributedStringKey.paragraphStyle:paragraphStyle] as! [NSAttributedStringKey : Any]
+        let attributes = [NSFontAttributeName:font,NSParagraphStyleAttributeName:paragraphStyle] as [String : Any]
         let rect = msg.boundingRect(with: CGSize.init(width: UIScreen.main.bounds.width - 60, height: CGFloat.greatestFiniteMagnitude), options: [.usesFontLeading,.usesLineFragmentOrigin], attributes: attributes, context: nil)
         
         msgLabel.frame = CGRect(x: 0, y: 0, width: rect.width + 10, height: rect.height + 10)
@@ -122,7 +122,7 @@ public class JXNoticeView: UIView {
         self.perform(#selector(dismiss(animate:)), with: nil, afterDelay: TimeInterval(duration.rawValue))
     }
     
-    @objc public func dismiss(animate:Bool = true) {
+    public func dismiss(animate:Bool = true) {
         if animate {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: [], animations: { 
                 self.alpha = 0.0

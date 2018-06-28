@@ -39,13 +39,44 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>iOSSnapshotTestCase.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>068A9047D0E14CCD7602A2FEBC677337</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1321E318D10CFDC9F5B93A7952492CCD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>189A0752BA7CEB96FA9B14E61E76C482</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>265D104DA1FA995ECC007359C5919D64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>34CD2E3428AB802BACA62286FF5074B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A550B121C74E21F1B5B745BCCEE754A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B8D0EB45470D6E626D7FE439E8DD717E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>

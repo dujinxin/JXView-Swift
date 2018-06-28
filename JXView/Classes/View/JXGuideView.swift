@@ -10,20 +10,20 @@ import UIKit
 
 private let reuseIdentifier = "CellId"
 
-public enum GuidePageStyle {
+enum GuidePageStyle {
     case number
     case point
 }
 
-public class JXGuideView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
+class JXGuideView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     
     ///图片数组
     var images = Array<String>()
     ///当前页码
-    public var currentPage = 0
-    public var style : GuidePageStyle = .point
-    public typealias DismissBlock =  ((_ guide:JXGuideView)->())?
-    public var dismissBlock : DismissBlock
+    var currentPage = 0
+    var style : GuidePageStyle = .point
+    typealias DismissBlock =  ((_ guide:JXGuideView)->())?
+    var dismissBlock : DismissBlock
     
     /// 首次安装和升级安装要显示引导页
     static var isShowGuideView: Bool {
@@ -66,14 +66,14 @@ public class JXGuideView: UIView,UICollectionViewDelegate,UICollectionViewDataSo
         return collection
     }()
     
-    public lazy var pageLabel: UILabel = {
+    lazy var pageLabel: UILabel = {
         let lab = UILabel()
         lab.frame = CGRect(origin: CGPoint(), size: CGSize(width: 100, height: 30))
         lab.textColor = UIColor.white
         lab.textAlignment = .center
         return lab
     }()
-    public lazy var pageControl: UIPageControl = {
+    lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.pageIndicatorTintColor = UIColor.darkGray
         pc.currentPageIndicatorTintColor = UIColor.white
@@ -81,7 +81,7 @@ public class JXGuideView: UIView,UICollectionViewDelegate,UICollectionViewDataSo
         pc.frame = CGRect(origin: CGPoint(), size: CGSize(width: 100, height: 20))
         return pc
     }()
-    public lazy var enterButton: UIButton = {
+    lazy var enterButton: UIButton = {
         let button = UIButton()
         button.setTitle("进入", for: .normal)
         button.frame = CGRect(origin: CGPoint(), size: CGSize(width: 80, height: 40))
@@ -96,17 +96,20 @@ public class JXGuideView: UIView,UICollectionViewDelegate,UICollectionViewDataSo
     }()
     
     
-    public init(frame: CGRect,images:Array<String>, block:DismissBlock) {
+    init(frame: CGRect, block:DismissBlock) {
         super.init(frame: frame)
         
-        self.images = images
         self.dismissBlock = block
         
         backgroundColor = UIColor.clear
         
+        
         addSubview(self.collectionView)
         addSubview(self.enterButton)
         
+        for i in 1...4 {
+            self.images.append(String(format: "guide_%d", i))
+        }
         enterButton.center = CGPoint(x: center.x, y: bounds.height - 50)
         if style == .point {
             addSubview(self.pageControl)
@@ -122,22 +125,22 @@ public class JXGuideView: UIView,UICollectionViewDelegate,UICollectionViewDataSo
         resetPage(page: currentPage)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: UICollectionViewDataSource
     
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.images.count
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GuideImageView
         
         // Configure the cell
@@ -161,7 +164,7 @@ public class JXGuideView: UIView,UICollectionViewDelegate,UICollectionViewDataSo
 //
         return cell
     }
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("点击：\(indexPath.item)")
     }
     
@@ -169,7 +172,7 @@ public class JXGuideView: UIView,UICollectionViewDelegate,UICollectionViewDataSo
 //MARK: - imageView gesture method
 extension JXGuideView {
     
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.x / self.bounds.width
         currentPage = Int(offset)
         resetPage(page: currentPage)
@@ -188,7 +191,7 @@ extension JXGuideView {
         }
     }
     
-    @objc func touchDismiss(button:UIButton) {
+    func touchDismiss(button:UIButton) {
         //收起
         print("收起")
         if let block = dismissBlock {

@@ -2,7 +2,7 @@ import Dispatch
 import Foundation
 
 /// "Global" state of Nimble is stored here. Only DSL functions should access / be aware of this
-/// class' existence
+/// class' existance
 internal class NimbleEnvironment {
     static var activeInstance: NimbleEnvironment {
         get {

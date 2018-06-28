@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3CBAA7889A2241A9B3049ACA9E2E68E3"
-               BlueprintName = "JXView"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "JXView.framework">
+               BuildableIdentifier = 'primary'
+               BlueprintIdentifier = '068A9047D0E14CCD7602A2FEBC677337'
+               BlueprintName = 'JXView'
+               ReferencedContainer = 'container:Pods.xcodeproj'
+               BuildableName = 'JXView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
