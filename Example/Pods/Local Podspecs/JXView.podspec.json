@@ -1,6 +1,6 @@
 {
   "name": "JXView",
-  "version": "0.0.13",
+  "version": "0.0.16",
   "summary": "custom view",
   "homepage": "https://github.com/dujinxin/JXView-Swift",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/dujinxin/JXView-Swift.git",
-    "tag": "0.0.13"
+    "tag": "0.0.16"
   },
   "platforms": {
     "ios": "8.0"
