@@ -1587,6 +1587,39 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		041DB333E429410C5CFF16DF04686B1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EF86D3A216FCC4ADDEF62AFC6EFDDCA /* JXView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JXView/JXView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JXView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JXView/JXView.modulemap";
+				PRODUCT_MODULE_NAME = JXView;
+				PRODUCT_NAME = JXView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		17A3359285A2BA9A9ADA486CA2CB4014 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41A099E710C4B375AC9EE6E87838C45A /* iOSSnapshotTestCase.xcconfig */;
@@ -1852,7 +1885,7 @@
 			};
 			name = Release;
 		};
-		80936A382830E76F3F6E799EE79AA77A /* Release */ = {
+		7E1357DAEC59C004A42C22BD628E5C3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8EF86D3A216FCC4ADDEF62AFC6EFDDCA /* JXView.xcconfig */;
 			buildSettings = {
@@ -1876,14 +1909,13 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		8741DE74445E21DF4B826930C842749D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1981,38 +2013,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		9B71DD662C1FF028D8F11C5AB9BD3DAA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EF86D3A216FCC4ADDEF62AFC6EFDDCA /* JXView.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JXView/JXView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JXView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JXView/JXView.modulemap";
-				PRODUCT_MODULE_NAME = JXView;
-				PRODUCT_NAME = JXView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		C7BE62186E17127FF3B5B27A193214BD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2262,8 +2262,8 @@
 		36FEE375F1C86ED062B5666FFE397AD7 /* Build configuration list for PBXNativeTarget "JXView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B71DD662C1FF028D8F11C5AB9BD3DAA /* Debug */,
-				80936A382830E76F3F6E799EE79AA77A /* Release */,
+				7E1357DAEC59C004A42C22BD628E5C3B /* Debug */,
+				041DB333E429410C5CFF16DF04686B1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
