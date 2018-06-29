@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35175FB420E5DB0F0056803B /* OrderManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35175FB220E5DB0F0056803B /* OrderManagerViewController.swift */; };
+		35175FB520E5DB0F0056803B /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35175FB320E5DB0F0056803B /* FeedbackViewController.swift */; };
 		35BF04191F4D6DB2004A77E9 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF04181F4D6DB2004A77E9 /* MainTableViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		00F5A1DC68DFC57825871114 /* Pods_JXView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JXView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35175FB220E5DB0F0056803B /* OrderManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderManagerViewController.swift; sourceTree = "<group>"; };
+		35175FB320E5DB0F0056803B /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		35BF04181F4D6DB2004A77E9 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		44FF935F4F3A752A65364E14 /* JXView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JXView.podspec; path = ../JXView.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* JXView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JXView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +108,8 @@
 		607FACD21AFB9204008FA782 /* Example for JXView */ = {
 			isa = PBXGroup;
 			children = (
+				35175FB320E5DB0F0056803B /* FeedbackViewController.swift */,
+				35175FB220E5DB0F0056803B /* OrderManagerViewController.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				35BF04181F4D6DB2004A77E9 /* MainTableViewController.swift */,
@@ -353,6 +359,8 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				35BF04191F4D6DB2004A77E9 /* MainTableViewController.swift in Sources */,
+				35175FB420E5DB0F0056803B /* OrderManagerViewController.swift in Sources */,
+				35175FB520E5DB0F0056803B /* FeedbackViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
