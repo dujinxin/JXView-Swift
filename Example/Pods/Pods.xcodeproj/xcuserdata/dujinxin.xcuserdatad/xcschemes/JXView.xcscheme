@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "068A9047D0E14CCD7602A2FEBC677337"
+               BlueprintIdentifier = "3CBAA7889A2241A9B3049ACA9E2E68E3"
                BlueprintName = "JXView"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "JXView.framework">

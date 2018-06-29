@@ -9,7 +9,7 @@ PODS:
   - iOSSnapshotTestCase/Core (3.0.0)
   - iOSSnapshotTestCase/SwiftSupport (3.0.0):
     - iOSSnapshotTestCase/Core
-  - JXView (0.0.6)
+  - JXView (0.0.7)
   - Nimble (7.1.2)
   - Nimble-Snapshots (6.7.1):
     - Nimble-Snapshots/Core (= 6.7.1)
@@ -40,7 +40,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   iOSSnapshotTestCase: 23984ffe05289728d646cbb6a7a10b4fb1c93440
-  JXView: 60246e62555f469fbef1d90cb1b2b78274e484e8
+  JXView: 14ca06d049bd66d164ab42df9dc872c20043d069
   Nimble: 3835ba9f459daa6b347f8a8e110aaae8ca1920a8
   Nimble-Snapshots: 7ab1d5fd4a794b983805c6f6b8091fb00d772754
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
