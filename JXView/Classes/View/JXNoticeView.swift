@@ -122,7 +122,7 @@ public class JXNoticeView: UIView {
         self.perform(#selector(dismiss(animate:)), with: nil, afterDelay: TimeInterval(duration.rawValue))
     }
     
-    public func dismiss(animate:Bool = true) {
+    @objc public func dismiss(animate:Bool = true) {
         if animate {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: [], animations: { 
                 self.alpha = 0.0

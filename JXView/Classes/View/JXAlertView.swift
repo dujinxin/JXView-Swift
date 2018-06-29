@@ -8,21 +8,12 @@
 
 import UIKit
 
-/// 弹窗风格
-///
-/// - plain: 默认
-/// - list: 列表
-/// - custom: 自定义视图
-enum JXAlertViewStyle : Int {
+public enum JXAlertViewStyle : Int {
     case plain
     case list
     case custom
 }
-/// 弹窗位置
-///
-/// - middle: 中部
-/// - bottom: 底部
-enum JXAlertViewShowPosition {
+public enum JXAlertViewShowPosition {
     case middle
     case bottom
 }
@@ -30,13 +21,13 @@ enum JXAlertViewShowPosition {
 private let reuseIdentifier = "reuseIdentifier"
 
 private let topBarHeight : CGFloat = 40
-private let alertViewMargin : CGFloat = 0
+private let alertViewMargin : CGFloat = kScreenWidth * 0.1
 private let alertViewWidth : CGFloat = UIScreen.main.bounds.width - 2 * alertViewMargin
 private let listHeight : CGFloat = 40
 private let cancelViewHeight : CGFloat = 40
 private let animateDuration : TimeInterval = 0.3
 
-class JXAlertView: UIView {
+public class JXAlertView: UIView {
 
     private var alertViewHeight : CGFloat = 0
     private var alertViewTopHeight : CGFloat = 0
@@ -44,17 +35,6 @@ class JXAlertView: UIView {
     var title : String?
     var message : String?
     var actions : Array<String> = [String](){
-//        willSet{//默认newValue，可以自己指定：（myValue）
-//            if newValue.count > 5 {
-//                self.tableView.isScrollEnabled = true
-//                self.tableView.bounces = true
-//                self.tableView.showsVerticalScrollIndicator = true
-//            }else{
-//                self.tableView.isScrollEnabled = false
-//                self.tableView.bounces = false
-//                self.tableView.showsVerticalScrollIndicator = false
-//            }
-//        }
         didSet{
             if actions.count > 5 {
                 self.tableView.isScrollEnabled = true
@@ -77,7 +57,7 @@ class JXAlertView: UIView {
             self.resetFrame()
         }
     }
-
+    var selectRow : Int = -1
     var contentHeight : CGFloat {
         set{//可以自己指定值带来替默认值eg: （myValue）
             var h : CGFloat = 0
@@ -101,20 +81,6 @@ class JXAlertView: UIView {
         }
     }
     
-    var selectRow : Int = -1
-    
-    private var contentView : UIView?
-
-//    var alertViewTopHeight : CGFloat = 40 {
-//        didSet{
-//            if (self.topBarView.superview == nil){
-//                self.addSubview(self.topBarView)
-//            }
-//            selectViewTop = topBarHeight
-//            self.resetFrame()
-//            self.layoutSubviews()
-//        }
-//    }
     var isScrollEnabled : Bool = false {
         didSet{
             if isScrollEnabled == true {
@@ -154,7 +120,12 @@ class JXAlertView: UIView {
             }
         }
     }
-    
+    private var contentView : UIView?
+    var customView: UIView? {
+        didSet{
+            self.contentView = customView
+        }
+    }
     var topBarView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.groupTableViewBackground
@@ -168,6 +139,7 @@ class JXAlertView: UIView {
         table.bounces = false
         table.showsVerticalScrollIndicator = false
         table.showsHorizontalScrollIndicator = false
+        table.separatorStyle = .none
         table.register(listViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         return table
     }()
@@ -175,7 +147,7 @@ class JXAlertView: UIView {
         let btn = UIButton()
         btn.backgroundColor = UIColor.white
         btn.setTitle("取消", for: UIControlState.normal)
-        btn.setTitleColor(UIColor.black, for: UIControlState.normal)
+        btn.setTitleColor(JX333333Color, for: UIControlState.normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         btn.addTarget(self, action: #selector(tapClick), for: UIControlEvents.touchUpInside)
         return btn
@@ -206,6 +178,9 @@ class JXAlertView: UIView {
         //self.rect = frame
         //self.frame = CGRect.init(x: 0, y: 0, width: frame.width, height: frame.height)
         self.backgroundColor = UIColor.clear
+        self.layer.cornerRadius = 15.0
+        self.clipsToBounds = true
+        self.layer.masksToBounds = true
         self.style = style
         
         if style == .list {
@@ -219,25 +194,9 @@ class JXAlertView: UIView {
         self.resetFrame()
     }
   
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//    func resetFrame() {
-//        var height = rect.height
-//        
-//        if isUseTopBar {
-//            height += topBarHeight
-//        }
-//        if isSetCancelView {
-//            height += cancelViewHeight
-//            
-//            if position == .bottom {
-//                height += 10
-//            }
-//        }
-//        
-//        self.frame = CGRect.init(x: (UIScreen.main.bounds.width - alertViewWidth)/2, y: 0, width: alertViewWidth, height:height)
-//    }
     func resetFrame(height:CGFloat = 0.0) {
         var h : CGFloat = 0
         if height > 0 {
@@ -256,10 +215,14 @@ class JXAlertView: UIView {
         if isSetCancelView {
             h += cancelViewHeight + 10
         }
+        //如果为iPhoneX，则把底部的34空间让出来
+//        if deviceModel == .iPhoneX {
+//            h += 34
+//        }
         self.frame = CGRect.init(x: (UIScreen.main.bounds.width - alertViewWidth)/2, y: 0, width: alertViewWidth, height:h)
         
     }
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         if isUseTopBar {
@@ -319,10 +282,7 @@ class JXAlertView: UIView {
                 if self.style == .list {
                     self.tableView.reloadData()
                 }else if self.style == .plain {
-//                    self.pickView.reloadComponent(0)
-//                    if self.selectRow >= 0 {
-//                        self.pickView.selectRow(self.selectRow, inComponent: 0, animated: true)
-//                    }
+
                 }
             })
         }
@@ -365,20 +325,20 @@ class JXAlertView: UIView {
 }
 extension JXAlertView : UITableViewDelegate,UITableViewDataSource{
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (actions.isEmpty == false) {
             return actions.count
         }
         return 0
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return listHeight
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! listViewCell
         
         if actions.isEmpty == false {
@@ -386,7 +346,7 @@ extension JXAlertView : UITableViewDelegate,UITableViewDataSource{
         }
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 //        if isUseTopBar {
 //            selectRow = indexPath.row
@@ -407,7 +367,7 @@ class listViewCell: UITableViewCell {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.darkText
+        label.textColor = JX333333Color
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 14)
         

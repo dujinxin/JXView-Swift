@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension String {
+public extension String {
     
     
     static func validateTelephone(tel:String) -> Bool {
@@ -48,19 +48,25 @@ extension String {
     }
 }
 
-extension String {
+public extension String {
     
-    func calculate(width: CGFloat,fontSize:CGFloat,lineSpace:CGFloat = -1) -> CGSize {
+    public func calculate(width: CGFloat,fontSize:CGFloat,lineSpace:CGFloat = -1) -> CGSize {
         
         if self.isEmpty {
             return CGSize()
         }
         
         let ocText = self as NSString
-        var attributes : Dictionary<String, Any>
+        
         let paragraph = NSMutableParagraphStyle.init()
         paragraph.lineSpacing = lineSpace
-        
+//        var attributes : Dictionary<NSAttributedStringKey, Any>
+//        if lineSpace < 0 {
+//            attributes = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: fontSize)]
+//        }else{
+//            attributes = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: fontSize),NSAttributedStringKey.paragraphStyle:paragraph]
+//        }
+        var attributes : Dictionary<String, Any>
         if lineSpace < 0 {
             attributes = [NSFontAttributeName:UIFont.systemFont(ofSize: fontSize)]
         }else{

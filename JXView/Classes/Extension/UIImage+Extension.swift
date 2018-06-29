@@ -93,7 +93,7 @@ extension UIImage {
     class func save(image:UIImage,completion:((_ isSuccess:Bool)->())?) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
     }
-    func image(image:UIImage,didFinishSavingWithError error:Error?,contextInfo:AnyObject?) {
+    @objc func image(image:UIImage,didFinishSavingWithError error:Error?,contextInfo:AnyObject?) {
         if error != nil {
             //
             print("保存成功")
